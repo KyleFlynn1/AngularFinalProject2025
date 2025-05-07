@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row border-bottom mb-3">
+        <div class="card text-white bg-dark h-100 shadow-sm border-secondary">
+            <div class="card-body">
+                <h5 class="card-body">{{stock.ticker}} - {{stock.name}}</h5>
+                <p class="card-text mb-1"><strong>Price:</strong> {{stock.price}} {{stock.currency}}</p>
+                <p class="card-text mb-1 text-warning"><strong>Change:</strong> {{stock.change}}%</p>
+                <p class="card-text mb-1 text-success"><strong>Day High:</strong> {{stock.day_high}}</p>
+                <p class="card-text mb-1 text-danger"><strong>Day Low:</strong> {{stock.day_low}}</p>
+                <p class="card-text mb-1"><strong>Currency:</strong> {{stock.currency}}</p>
+                <button class="btn btn-outline-light btn-sm">💾 Save</button>
+            </div>
+        </div>
+    </div>
+</div>
