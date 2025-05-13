@@ -1,0 +1,21 @@
+<div class="container calculatorCard">
+    <h2 class="text-white TitleFont text-center">Stock Calculator</h2>
+    <div class="container d-flex justify-content-center">
+        <form class="text-white">
+            <div class="form-group InfoFont">
+              <label for="stockPrice">Stock Price</label>
+              <input type="number" #price class="form-control" id="stockPrice" placeholder="$195.43">
+            </div>
+            <div class="form-group InfoFont">
+              <label for="stockAmount">Amount of Stock</label>
+              <input type="number" #amount class="form-control" id="stockAmount" placeholder="4">
+            </div>
+          </form>
+    </div>
+    <div class="container d-flex justify-content-center">
+        <button type="button" class="btn  btn-lg btn-success m-2" (click)="calculateStockValue((amount.value),(price.value))" >Calculate</button>
+    </div>
+    <div class="container d-flex justify-content-center">
+        <h2 class="text-success" *ngIf="stockTotalValue > 0">Total Value: ${{ stockTotalValue }}</h2>
+    </div>
+</div>

@@ -1,12 +1,12 @@
 <div class="container mt-4">
-    <div class="container pb-4">
-        <h4 class="text-white">Select Stock to View History Of</h4>
-        <div class="btn-group" role="group" aria-label="Basic example">
+    <div class="container pb-4 splitter">
+        <h4 class="TitleFont text-white text-center">Select Stock to View History Of</h4>
+        <div class="btn-group d-flex justify-content-center" role="group" aria-label="Basic example">
             <button *ngFor="let ticker of tickerOptions" class="btn btn-primary" (click)="filterStockHistory(ticker)"> {{ticker}}</button>
         </div>
     </div>
 
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 d-flex justify-content-center">
         <app-stock class="col" *ngFor="let stockData of sortedStocksData" [stock]="stockData"></app-stock>
     </div>
 </div>

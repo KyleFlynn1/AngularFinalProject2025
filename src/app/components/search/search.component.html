@@ -1,31 +1,36 @@
 <div class="">
+    <div class="TitleFont text-center text-white">
+        <h1>Search By Stock Ticker</h1>
+    </div> 
     <form>
-        <div class="form-group d-flex justify-content-center searchBox">
+        <div class="form-group d-flex justify-content-center searchBox p-2">
         <input type="text" name="symbol" placeholder="Enter ticker for example NVDA,AAPL" #ticker class="form-control mb-2">
         </div>
-        <div class="form-group mt-2 text-center pb-3">
-        <button class="btn btn-primary" type="submit" (click)="getStockData(ticker.value)">Get Stock</button>
+        <div class="form-group text-center">
+        <button class="btn InfoFont btn-lg btn-success" type="submit" (click)="getStockData(ticker.value)">Get Stock</button>
         </div>
     </form> 
 
     <div>
-        <div class="w-100 text-center text-white p-3">
+        <div class=" TitleFont splitter text-center text-white p-3">
             <h1>Real Time Stock Data</h1>
         </div> 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             <div *ngFor="let stock of stockData" class="col-12 col-md-6 col-lg-4">
                 <div class="container">
-                    <div class="row border-bottom mb-3">
-                        <div class="card text-white bg-dark h-100 shadow-sm border-secondary">
-                            <div class="card-body">
+                    <div class="row mb-3 d-flex justify-content-center">
+                        <div class="card customCard text-white h-100 ">
+                            <div class="card-body TitleFont">
                                 <h5 class="card-body">{{stock.ticker}} - {{stock.name}}</h5>
-                                <p class="card-text mb-1"><strong>Price:</strong> {{stock.price}} {{stock.currency}}</p>
-                                <p class="card-text mb-1 text-warning"><strong>Change:</strong> {{stock.day_change}}%</p>
-                                <p class="card-text mb-1 text-success"><strong>Day High:</strong> {{stock.day_high}}</p>
-                                <p class="card-text mb-1 text-danger"><strong>Day Low:</strong> {{stock.day_low}}</p>
-                                <p class="card-text mb-1"><strong>Currency:</strong> {{stock.currency}}</p>
-                                <button class="btn btn-outline-light btn-sm" (click)="saveStock(stock)">💾 Save</button>
-                                <button class="btn btn-outline-light btn-sm" (click)="getStockHistory(stock.ticker)">🕐 Show Previous History</button>
+                                <p class="card-text mb-1 InfoFont"><strong>Price:</strong> {{stock.price}} {{stock.currency}}</p>
+                                <p class="card-text mb-1 text-warning InfoFont"><strong>Change:</strong> {{stock.day_change}}%</p>
+                                <p class="card-text mb-1 text-success InfoFont"><strong>Day High:</strong> {{stock.day_high}}</p>
+                                <p class="card-text mb-1 text-danger InfoFont"><strong>Day Low:</strong> {{stock.day_low}}</p>
+                                <p class="card-text mb-1 InfoFont"><strong>Currency:</strong> {{stock.currency}}</p>
+                                <div class="d-flex justify-content-center p-3">
+                                    <button class="btn btn-outline-light btn-md InfoFont" (click)="saveStock(stock)">💾 Save</button>
+                                    <button class="btn btn-outline-light btn-md InfoFont" (click)="getStockHistory(stock.ticker)">🕐 Show History</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -33,7 +38,7 @@
         </div>
     </div>
     <div>
-        <div class="w-100 text-center text-white p-3">
+        <div class=" TitleFont splitter text-center text-white p-3">
             <h1>Stock Data History</h1>
         </div> 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">

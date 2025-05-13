@@ -1,4 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'LillitaOne';
+    src: url('app/assets/fonts/LilitaOne-Regular.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+  }  
+
+@font-face {
+    font-family: 'AnonymousPro';
+    src: url('app/assets/fonts/AnonymousPro-Bold.ttf') format('truetype'); 
+    font-weight: bold;
+    font-style: normal;
+  }
+
+
 .searchBox {
     width: 25%;
     margin: 0 auto;
@@ -7,4 +22,81 @@
 
 body {
     background-color: #1b1b1ee5;
+}
+
+.customNav {
+    border-bottom: #76faffe5 solid 4px;
+    color: #76faffe5;
+    background-color: #212020;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.customCard {
+    background-color: #212020;
+    border-bottom: 5px solid #ff4ce1e5;
+    border-right: 5px solid #ff4ce1e5;
+    border-top: 1px solid #ff4ce1e5;
+    border-left: 0.4px solid #ff4ce1e5;
+    border-radius: 15px;
+    margin: 10px;
+    width: 450px;
+}
+
+.customCard:hover {
+    background-color: #212020;
+    border-bottom: 5px solid #4cfff6e5;
+    border-right: 5px solid #4cfff6e5;
+    border-top: 1px solid #4cfff6e5;
+    border-left: 0.4px solid #4cfff6e5;
+    scale: 1.02;
+}
+
+.splitter {
+    border-bottom: 3px solid #ff4ce1e5;
+    border-radius: 2px;
+    margin: 10px 0;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.calculatorCard{
+    background-color: #212020;
+    border-bottom: 5px solid #ff4ce1e5;
+    border-right: 5px solid #ff4ce1e5;
+    border-top: 1px solid #ff4ce1e5;
+    border-left: 0.4px solid #ff4ce1e5;
+    border-radius: 15px;
+    margin-top: 50px;
+    margin-left: 35%;
+    padding: 50px;
+    height: 350px;
+    width: 30%;
+}
+
+.calculatorCard:hover {
+    background-color: #212020;
+    border-bottom: 5px solid #4cfff6e5;
+    border-right: 5px solid #4cfff6e5;
+    border-top: 1px solid #4cfff6e5;
+    border-left: 0.4px solid #4cfff6e5;
+    scale: 1.02;
+}
+
+.btn-primary{
+    background-color: #4cfff6e5;
+    border: none;
+}
+.btn-primary:hover{
+    background-color: #ff4ce1e5;
+    border-bottom: white solid 2px;
+    scale: 1.02;
+}
+
+.TitleFont {
+    font-family: lillitaOne, sans-serif;
+}
+
+.InfoFont {
+    font-family: AnonymousPro, sans-serif;
 }
