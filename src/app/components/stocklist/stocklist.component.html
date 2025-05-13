@@ -1,38 +1,12 @@
-<div class="container mt-3 mb-3">
-    <button (click)="show = !show">{{show ? 'Hide' : 'Add a Stock'}}</button>
-
-    <div *ngIf="show">
-        <form>
-            <label>Ticker</label>
-            <input type="text" name="ticker" placeholder="Enter ticker" #ticker>
-
-            <label>Name</label>
-            <input type="text" name="name" placeholder="Enter name" #name>
-
-            <label>Price</label>
-            <input type="number" name="price" placeholder="Enter price" #price>
-
-            <label>Change</label>
-            <input type="number" name="change" placeholder="Enter change" #change>
-
-            <label>Day Low</label>
-            <input type="number" name="dayLow" placeholder="Enter day low" #dayLow>
-
-            <label>Day High</label>
-            <input type="number" name="dayHigh" placeholder="Enter day high" #dayHigh>
-
-            <label>Currency</label>
-            <input type="text" name="currency" placeholder="Enter currency" #currency>
-
-            <label>MIC Code</label>
-            <input type="text" name="micCode" placeholder="Enter mic code" #micCode>
-
-            <button class="btn btn-primary" type="submit" (click)="addStock(ticker.value, name.value, price.value, change.value, dayLow.value, dayHigh.value, currency.value, micCode.value)">Add Stock</button>        </form>
-    </div>
-</div>
-
 <div class="container mt-4">
+    <div class="container pb-4">
+        <h4 class="text-white">Select Stock to View History Of</h4>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button *ngFor="let ticker of tickerOptions" class="btn btn-primary" (click)="filterStockHistory(ticker)"> {{ticker}}</button>
+        </div>
+    </div>
+
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        <app-stock class="col" *ngFor="let stockData of stocksData" [stock]="stockData"></app-stock>
+        <app-stock class="col" *ngFor="let stockData of sortedStocksData" [stock]="stockData"></app-stock>
     </div>
 </div>

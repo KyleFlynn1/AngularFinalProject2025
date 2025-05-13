@@ -1,33 +1,15 @@
-<div class="container">
-  <h1>Stock Data Application</h1>
-  <form>
-    <div class="form-group">
-      <input type="text" name="symbol" placeholder="Enter ticker" #ticker class="form-control mb-2">
-    </div>
-    <div class="form-group mt-2">
-      <button class="btn btn-primary" type="submit" (click)="getStockData(ticker.value)">Get Stock</button>
-    </div>
-  </form>
-  
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-    <div *ngFor="let stock of stockData" class="col">
-      <div class="container">
-        <div class="row border-bottom mb-3">
-            <div class="card text-white bg-dark h-100 shadow-sm border-secondary">
-                <div class="card-body">
-                    <h5 class="card-body">{{stock.ticker}} - {{stock.name}}</h5>
-                    <p class="card-text mb-1"><strong>Price:</strong> {{stock.price}} {{stock.currency}}</p>
-                    <p class="card-text mb-1 text-warning"><strong>Change:</strong> {{stock.day_change}}%</p>
-                    <p class="card-text mb-1 text-success"><strong>Day High:</strong> {{stock.day_high}}</p>
-                    <p class="card-text mb-1 text-danger"><strong>Day Low:</strong> {{stock.day_low}}</p>
-                    <p class="card-text mb-1"><strong>Currency:</strong> {{stock.currency}}</p>
-                    <button class="btn btn-outline-light btn-sm" (click)="saveStockData(stock)">💾 Save</button>
-                </div>
-            </div>
-        </div>
-    </div>
+<router-outlet>
+  <div class="text-center">
+    <div class="text-bg-dark py-1 mb-3"> 
+      <h1 class="text-white">Stock Data Application</h1>
+      <header class="d-flex justify-content-center py-3"> 
+        <ul class="nav nav-pills"> 
+          <li class="nav-item">
+            <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" class="nav-link" ariaCurrentWhenActive="page">Home</a>
+          </li> 
+          <li class="nav-item">
+            <a routerLink="/history" routerLinkActive="active" class="nav-link" ariaCurrentWhenActive="page">History</a>
+          </li> 
+        </ul> 
+    </header>
   </div>
-</div>
-  <app-stocklist></app-stocklist>     
-</div>
-<router-outlet />

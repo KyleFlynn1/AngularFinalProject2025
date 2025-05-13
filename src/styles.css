@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+.searchBox {
+    width: 25%;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+body {
+    background-color: #1b1b1ee5;
+}

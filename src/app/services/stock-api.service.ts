@@ -10,11 +10,20 @@ import { IStock } from '../interfaces/stock';
 export class StockApiService {
 
   constructor(private _http: HttpClient) {}
-  private _siteURL = 'http://localhost:5050/stocks';
+  private _siteURL = 'http://localhost:5050/stocks/';
 
 
   getStockDetails():Observable<any> {
     return this._http.get<IStock>(this._siteURL)
+    .pipe(
+      tap(data => console.log('stock data/error: ' + JSON.stringify(data))
+    ),
+    catchError(this.handleError)
+    );
+  }
+
+  getStockDetailsByTicker(stockTicker:string):Observable<any> {
+    return this._http.get<IStock>(this._siteURL+'/'+stockTicker)
     .pipe(
       tap(data => console.log('stock data/error: ' + JSON.stringify(data))
     ),
