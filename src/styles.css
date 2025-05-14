@@ -43,6 +43,10 @@ body {
     width: 450px;
 }
 
+.row{
+    margin: 0 auto;
+}
+
 .customCard:hover {
     background-color: #212020;
     border-bottom: 5px solid #4cfff6e5;
