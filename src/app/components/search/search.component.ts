@@ -22,19 +22,24 @@ export class SearchComponent {
     this._stockDataApiService.getStockData(stockSymbol).subscribe({
       next: stockData => {
         if (stockData && stockData.data) {
-          if (Array.isArray(stockData.data) && stockData.data.length > 0) {
+          if (Array.isArray(stockData.data) && stockData.data.length > 0) 
+            {
             this.stockData = stockData.data;
             console.log('Stock data: ', this.stockData);
-          } else {
-            console.error('No stock data found');
+          } 
+          else 
+          {
+            console.error('no data found');
           }
-        } else {
-          console.error('Invalid stock data response');
+        } 
+        else 
+        {
+          console.error('stock data response error: ', stockData);
         }
       },
       error: error => {
         this.errorMessage = error;
-        console.error('Error fetching stock data: ', error);
+        console.error('error getting stock: ', error);
       }
     });
     return false;
@@ -53,19 +58,20 @@ export class SearchComponent {
       stock.mic_code
     );
     this._stockAPIService.addStockDetails(addStock).subscribe(stocksData => {
-      console.log('Stock added:', stocksData);
+      console.log('added stock:', stocksData);
     });
     return false;
   }
 
   getStockHistory(ticker: string) {
     this._stockAPIService.getStockDetailsByTicker(ticker).subscribe((stocksData) => {
-      console.log('API Response:', stocksData); // Log the response
+      console.log('API Response:', stocksData);
       if (Array.isArray(stocksData)) {
-        this.stockDataHistory = stocksData; // Assign only if it's an array
-      } else {
-        console.error('Expected an array but got:', stocksData);
-        this.stockDataHistory = []; // Fallback to an empty array
+        this.stockDataHistory = stocksData;
+      } 
+      else 
+      {
+        this.stockDataHistory = []; 
       }
     });
   }

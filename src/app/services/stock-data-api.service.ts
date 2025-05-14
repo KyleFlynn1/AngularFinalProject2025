@@ -17,7 +17,8 @@ export class StockDataApiService {
     const url = `${this._siteURL}${stockSymbol}${this._key}`;
     return this._http.get<StockApiResponse>(url)
       .pipe(
-        tap(data => console.log('Stock data: ', JSON.stringify(data))),
+        tap(data => console.log('stock data/error: ', JSON.stringify(data))
+      ),
         catchError(this.handleError)
       );
   }

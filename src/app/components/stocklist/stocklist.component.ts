@@ -25,13 +25,16 @@ export class StocklistComponent {
 
     getStocks() {
       this._stockApiService.getStockDetails().subscribe((stocksData) => {
-        console.log('API Response:', stocksData); // Log the response
-        if (Array.isArray(stocksData)) {
-          this.stocksData = stocksData; // Assign only if it's an array
+        console.log('API Response:', stocksData); 
+        if (Array.isArray(stocksData))
+           {
+          this.stocksData = stocksData; 
           this.getTickerOptions();
-        } else {
-          console.error('Expected an array but got:', stocksData);
-          this.stocksData = []; // Fallback to an empty array
+        } 
+        else 
+        {
+          console.error('Error getting stockss data:', stocksData);
+          this.stocksData = []; 
         }
       });
     }
@@ -57,13 +60,15 @@ export class StocklistComponent {
 
   filterStockHistory(ticker: string) {
     this._stockApiService.getStockDetailsByTicker(ticker).subscribe((sortedStocksData) => {
-      console.log('API Response:', sortedStocksData); // Log the response
+      console.log('API Response:', sortedStocksData); 
       if (Array.isArray(sortedStocksData)) {
-        this.sortedStocksData = sortedStocksData; // Assign only if it's an array
-        console.log('Filtered Stocks Data:', this.stocksData);
-      } else {
-        console.error('Expected an array but got:', sortedStocksData);
-        this.sortedStocksData = []; // Fallback to an empty array
+        this.sortedStocksData = sortedStocksData; 
+        console.log('Stock data filtered:', this.stocksData);
+      } 
+      else 
+      {
+        console.error('Error getting stocks', sortedStocksData);
+        this.sortedStocksData = []; 
       }
     });
   }
@@ -71,7 +76,7 @@ export class StocklistComponent {
   getTickerOptions() {
     this.stocksData.forEach(stock => {
       this.tickerOptions.add(stock.ticker);
-      console.log('Ticker Options:', this.tickerOptions);
+      console.log('stock ticker added to set:', this.tickerOptions);
     });
   }
 
